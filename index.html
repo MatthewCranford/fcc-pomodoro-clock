@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pomodoro Clock</title>
-    <link rel="stylesheet" href="style.css">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -18,8 +19,44 @@
     </header>
 
     <main class="main">
-        <label for="break">Break time:</label>
-        <input type="number">
+
+        <div class="pomodoro container">
+            <form action="#">
+
+                <div class="settings">
+                    <div class="row">
+                        <div class="settings__session col-6">
+                            <label class="settings__label" for="break">Session length:</label>
+                            <input class="settings__input" id="session" type="number" value="25" min="1" max="60">
+                        </div>
+                        <div class="settings__break col-6">
+                            <label class="settings__label " for="break">Break Length</label>
+                            <input class="settings__input " id="break" type="number" value="5" min="1" max="60">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timer">
+                    <div class="row">
+                        <div class="col-12">
+                            <span class="timer__status">Session:</span>
+                        </div>
+                        <div class="col-12">
+                            <span class="timer__time">25:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="start">
+                    <div class="row">
+                        <div class="start col-12">
+                            <input class="start__button" type="submit" value="Start"></input>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
     </main>
 
     <script src="script.js"></script>
