@@ -14,8 +14,9 @@
 </head>
 
 <body>
-    <header>
-        <h1 class="title">Pomodoro Clock</h1>
+
+    <header class="header">
+        <h1 class="d-flex justify-content-center bg-danger text-white p-3 mb-5">Pomodoro Clock</h1>
     </header>
 
     <main class="main">
@@ -23,20 +24,20 @@
         <div class="pomodoro container">
             <form action="#">
 
-                <div class="settings">
-                    <div class="row">
-                        <div class="settings__session col-6">
+                <div class="settings container text-center  ">
+                    <div class="row md-flex justify-content-center">
+                        <div class="settings__session col-6 col-md-3 d-flex flex-column">
                             <label class="settings__label" for="break">Session length:</label>
-                            <input class="settings__input" id="session" type="number" value="25" min="1" max="60">
+                            <input class="settings__input text-center w-75 m-auto" id="session" type="number" value="25" min="1" max="60">
                         </div>
-                        <div class="settings__break col-6">
+                        <div class="settings__break col-6 col-md-3 d-flex flex-column">
                             <label class="settings__label " for="break">Break Length</label>
-                            <input class="settings__input " id="break" type="number" value="5" min="1" max="60">
+                            <input class="settings__input text-center w-75 m-auto" id="break" type="number" value="5" min="1" max="60">
                         </div>
                     </div>
                 </div>
 
-                <div class="timer">
+                <div class="timer container bg-danger">
                     <div class="row">
                         <div class="col-12">
                             <span class="timer__status">Session:</span>
@@ -47,17 +48,16 @@
                     </div>
                 </div>
 
-                <div class="start">
-                    <div class="row">
-                        <div class="start col-12">
-                            <input class="start__button" type="submit" value="Start"></input>
-                        </div>
-                    </div>
+                <div class="start text-center mt-4 w-100">
+                    <input class="start__button pl-3 pr-3 p-1" type="submit" value="Start"></input>
                 </div>
             </form>
+
         </div>
 
     </main>
+
+
 
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

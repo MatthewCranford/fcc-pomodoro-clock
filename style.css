@@ -3,39 +3,6 @@ body {
   background-color: #eeeeee;
 }
 
-.title {
-  text-align: center;
-  font-size: 3em;
-  margin: 1rem 0;
-}
-
-.main {
-  margin: 3rem 0;
-}
-
-/* 
-*
-* Settings 
-*
-*/
-
-.settings__session {
-  text-align: center;
-}
-
-.settings__break {
-  text-align: center;
-}
-
-.settings__label {
-  display: block;
-}
-
-.settings__input {
-  text-align: center;
-  width: 100px;
-}
-
 /* 
 *
 * Timer 
@@ -54,26 +21,4 @@ body {
   justify-content: space-around;
   font-size: 3rem;
   color: #eeeeee;
-}
-
-.timer__status {
-}
-
-.timer__time {
-}
-
-/* 
-*
-* Start 
-*
-*/
-
-.start {
-  display: flex;
-  justify-content: center;
-  margin: 1rem 0 0;
-}
-
-.start__button {
-  width: 75px;
 }
