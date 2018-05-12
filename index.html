@@ -22,17 +22,17 @@
     <main class="main">
 
         <div class="pomodoro container">
-            <form action="#">
+            <form id="form">
 
                 <div class="settings container text-center  ">
                     <div class="row md-flex justify-content-center">
                         <div class="settings__session col-6 col-md-3 d-flex flex-column">
                             <label class="settings__label" for="break">Session length:</label>
-                            <input class="settings__input text-center w-75 m-auto" id="session" type="number" value="25" min="1" max="60">
+                            <input class="settings__input text-center w-75 m-auto" id="session" type="number" value="25" min="1" max="60" pattern="[0-9]">
                         </div>
                         <div class="settings__break col-6 col-md-3 d-flex flex-column">
                             <label class="settings__label " for="break">Break Length</label>
-                            <input class="settings__input text-center w-75 m-auto" id="break" type="number" value="5" min="1" max="60">
+                            <input class="settings__input text-center w-75 m-auto" id="break" type="number" value="5" min="1" max="60" pattern="[0-9]">
                         </div>
                     </div>
                 </div>
@@ -43,13 +43,13 @@
                             <span class="timer__status">Session:</span>
                         </div>
                         <div class="col-12">
-                            <span class="timer__time">25:00</span>
+                            <span class="timer__time" id="time">25:00</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="start text-center mt-4 w-100">
-                    <input class="start__button pl-3 pr-3 p-1" type="submit" value="Start"></input>
+                    <input class="start__button pl-3 pr-3 p-1" id="start" type="submit" value="Start"></input>
                 </div>
             </form>
 
@@ -59,13 +59,14 @@
 
 
 
-    <script src="script.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
+    <script src="timer.js"></script>
 </body>
 
 </html>
