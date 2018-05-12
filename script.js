@@ -1,19 +1,36 @@
-$('#form').on('submit', () => {
+$('#form').on('submit', event => {
+  event.preventDefault();
   function initializeTimer() {
-    const sessionTime = $('#session').val();
+    let totalSeconds = parseInt($('#session').val() * 60);
     const breakTime = $('#break').val();
-    displayTime(sessionTime);
-    startTimer(sessionTime);
+
+    displayTime(totalSeconds);
+    startTimer(totalSeconds);
   }
 
-  function displayTime(sessionTime) {
-    $('#time').text(`${sessionTime}:00`);
+  function displayTime(totalSeconds) {
+    minutes = Math.floor(totalSeconds / 60).toString();
+    seconds = (totalSeconds % 60).toString();
+
+    if (seconds.length < 2) {
+      seconds = '0' + seconds;
+    }
+
+    $('#time').text(`${minutes}:${seconds}`);
   }
 
-  function startTimer(sessionTime) {
-    setInterval(function() {
-      console.log(sessionTime - 1);
-    }, 1000);
+  function startTimer(totalSeconds) {
+    const timer = setInterval(decrementTime, 1000);
+
+    function decrementTime() {
+      if (totalSeconds === 0) {
+        clearInterval(timer);
+      }
+      console.log(totalSeconds);
+      totalSeconds--;
+      displayTime(totalSeconds);
+    }
   }
+  reset;
   initializeTimer();
 });
