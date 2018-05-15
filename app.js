@@ -2,24 +2,28 @@ let flag;
 let timerID;
 
 $('.toggle').on('click', '.toggle__btn--start', function(event) {
-  $(this).toggleClass('toggle__btn--stop');
-  $(this).toggleClass('toggle__btn--start');
-  $(this).val('Stop');
+  toggleButton($(this), true);
   initializeTimer();
 });
 
 $('.toggle').on('click', '.toggle__btn--stop', function(event) {
   let userInput = confirm('This will reset the clock! Are you sure?');
   if (userInput) {
-    $('#time').text($('#session').val() + ':00');
     clearInterval(timerID);
-    $(this).toggleClass('toggle__btn--start');
-    $(this).toggleClass('toggle__btn--stop');
-    $(this).val('Start');
+    toggleButton($(this), false);
+    $('#time').text($('#session').val() + ':00');
   }
 });
 
-function toggleButton() {}
+function toggleButton(element, stopStatus) {
+  element.toggleClass('toggle__btn--start');
+  element.toggleClass('toggle__btn--stop');
+  if (stopStatus) {
+    element.val('Stop');
+  } else {
+    element.val('Start');
+  }
+}
 
 function initializeTimer() {
   let totalSeconds = parseInt($('#session').val() * 60);
