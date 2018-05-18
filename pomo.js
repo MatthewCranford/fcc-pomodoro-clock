@@ -1,30 +1,44 @@
+const beep = $('#beep')[0];
+const toggle = $('.toggle');
+const toggleBtn = $('.toggle__btn');
 let flag;
 let timerID;
 let sessionTime;
 let breakTime;
 let onBreak = false;
 
-$('.toggle').on('click', '.toggle__btn--start', function(event) {
-  toggleButton($(this), true);
+toggle.on('click', '.toggle__btn--start', function(event) {
+  onBreak = false;
+  setStatusText();
+  toggleBtnStartStop();
   initializeTimer();
 });
 
-$('.toggle').on('click', '.toggle__btn--stop', function(event) {
+toggle.on('click', '.toggle__btn--stop', function(event) {
   let userInput = confirm('This will reset the clock! Are you sure?');
   if (userInput) {
     clearInterval(timerID);
-    toggleButton($(this), false);
-    $('#time').text($('#session').val() + ':00');
+    onBreak = true;
+    toggleBtnStartStop();
+    displayTime(sessionTime);
   }
 });
 
-function toggleButton(element, stopStatus) {
-  element.toggleClass('toggle__btn--start');
-  element.toggleClass('toggle__btn--stop');
-  if (stopStatus) {
-    element.val('Stop');
+function setStatusText() {
+  if (onBreak) {
+    $('.timer__status').text('Break:');
   } else {
-    element.val('Start');
+    $('.timer__status').text('Session:');
+  }
+}
+
+function toggleBtnStartStop() {
+  toggleBtn.toggleClass('toggle__btn--start');
+  toggleBtn.toggleClass('toggle__btn--stop');
+  if (onBreak) {
+    toggleBtn.val('Start');
+  } else {
+    toggleBtn.val('Stop');
   }
 }
 
@@ -50,18 +64,17 @@ function startTimer(timeInSeconds) {
   function decrementTime() {
     flag = true;
     if (timeInSeconds === 0) {
+      beep.play();
       clearInterval(timerID);
       displayTime(timeInSeconds);
       if (!onBreak) {
         onBreak = true;
-        $('.timer__status').text('Break:');
+        setStatusText();
         startTimer(breakTime);
       } else {
-        $('.toggle__btn').toggleClass('toggle__btn--start');
-        $('.toggle__btn').toggleClass('toggle__btn--stop');
-        $('.toggle__btn').val('Start');
-        $('.timer__status').text('Session:');
-        onBreak = false;
+        onBreak = true;
+        setStatusText();
+        toggleBtnStartStop();
       }
     } else {
       console.log(timeInSeconds);
