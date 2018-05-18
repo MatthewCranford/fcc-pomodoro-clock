@@ -3,6 +3,7 @@ let timerID;
 let sessionTime;
 let breakTime;
 let onBreak = false;
+const beep = $('#beep')[0];
 
 $('.toggle').on('click', '.toggle__btn--start', function(event) {
   toggleButton($(this), true);
@@ -50,6 +51,7 @@ function startTimer(timeInSeconds) {
   function decrementTime() {
     flag = true;
     if (timeInSeconds === 0) {
+      beep.play();
       clearInterval(timerID);
       displayTime(timeInSeconds);
       if (!onBreak) {
