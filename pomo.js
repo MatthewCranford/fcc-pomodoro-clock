@@ -77,7 +77,6 @@ function startTimer(timeInSeconds) {
         toggleBtnStartStop();
       }
     } else {
-      console.log(timeInSeconds);
       timeInSeconds--;
       displayTime(timeInSeconds);
     }
