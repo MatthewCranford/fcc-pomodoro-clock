@@ -59,7 +59,7 @@ function displayTime(timeInSeconds) {
 }
 
 function startTimer(timeInSeconds) {
-  timerID = setInterval(decrementTime, 10);
+  timerID = setInterval(decrementTime, 1000);
 
   function decrementTime() {
     flag = true;
